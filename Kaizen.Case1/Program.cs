@@ -19,21 +19,31 @@ internal class Program
             };
             codes.Add(code);
             Console.WriteLine(code);
+
         }
-        Console.ReadLine();
     }
     public static bool IsExist(string NewCode,List<string> CreatedCodes) {
         var sameCode = CreatedCodes.Where(c => c == NewCode).FirstOrDefault();
-        if (sameCode != null)
+        if (sameCode == null)
         {
-            return true;
+
+            return IsValid(NewCode);
         }
         else
         {
             return false;
         }
         
-    } 
+    }
+
+    public static bool IsValid (string Code){
+        bool hasC = Code.Contains("C");
+        bool has5 = Code.Contains("5");
+        bool has3 = Code.Contains("3");
+        return (!(has3&&has5&&hasC));
+
+    }
+
     public static string CodCreate(int length)
     {
         string valid = "ACDEFGHKLMNPRTXYZ234579";
