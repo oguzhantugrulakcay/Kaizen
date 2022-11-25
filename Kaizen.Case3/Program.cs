@@ -36,6 +36,7 @@ class Program
         {
             string json = r.ReadToEnd();
             response = JsonSerializer.Deserialize<List<Response>>(json);
+
         }
 
         var bill =new List<BillLine>();
